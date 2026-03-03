@@ -32,7 +32,7 @@ export function LoginForm({ className, ...props }) {
       setError("")
 
       const res = await axios.post(
-        `${BASE_API}/api/auth/login`,
+        `${BASE_API}/api/v1/auth/login`,
         {
           email,
           password

@@ -52,22 +52,30 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Master Management",
       url: "#",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: "History",
-          url: "#",
+          title: "Institution",
+          url: "/institutions",
         },
         {
-          title: "Starred",
-          url: "#",
+          title: "Campus",
+          url: "/campus",
         },
         {
-          title: "Settings",
-          url: "/settings",
+          title: "Department",
+          url: "/department",
+        },
+        {
+          title : "Program",
+          url : "/program",
+        },
+        {
+          title : "Academic Year",
+          url : "/acdemic-year",
         },
       ],
     },
