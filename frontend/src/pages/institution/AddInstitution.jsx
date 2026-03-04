@@ -1,6 +1,6 @@
 "use client"
 
-const BASE_API = import.meta.env.VITE_BASE_API
+import api from "@/lib/api"
 
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -53,11 +53,10 @@ export default function AddInstitution() {
     setLoading(true)
 
     try {
-      await axios.post(
-        `${BASE_API}/api/v1/institutions`,
+      await api.post(
+        `/api/v1/institutions`,
         formData
       )
-
       navigate("/institutions") // redirect after success
     } catch (error) {
       console.error(error)

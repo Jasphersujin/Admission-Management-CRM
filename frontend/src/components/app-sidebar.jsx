@@ -63,11 +63,11 @@ const data = {
         },
         {
           title: "Campus",
-          url: "/campus",
+          url: "/campuses",
         },
         {
           title: "Department",
-          url: "/department",
+          url: "/departments",
         },
         {
           title : "Program",

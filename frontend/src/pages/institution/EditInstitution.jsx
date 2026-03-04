@@ -1,10 +1,9 @@
 "use client"
 
-const BASE_API = import.meta.env.VITE_BASE_API
-
+import api from "@/lib/api"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import axios from "axios"
+// import axios from "axios"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -38,8 +37,12 @@ export default function EditInstitution() {
   useEffect(() => {
     const fetchInstitution = async () => {
       try {
-        const res = await axios.get(
-          `${BASE_API}/api/v1/institutions/${id}`
+        // const res = await axios.get(
+        //   `${BASE_API}api/v1/institutions/${id}`
+        // )
+
+        const res = await api.get(
+          `/api/v1/institutions/${id}`
         )
 
         setFormData(res.data)
@@ -75,11 +78,10 @@ export default function EditInstitution() {
     setLoading(true)
 
     try {
-      await axios.put(
-        `${BASE_API}/api/v1/institutions/${id}`,
+      await api.put(
+        `/api/v1/institutions/${id}`,
         formData
       )
-
       navigate("/institutions")
     } catch (error) {
       console.error(error)

@@ -1,7 +1,7 @@
 "use client"
 
-const BASE_API = import.meta.env.VITE_BASE_API
-
+// const BASE_API = import.meta.env.VITE_BASE_API
+import api from "@/lib/api.js"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
@@ -26,8 +26,8 @@ export default function ViewInstitution() {
   useEffect(() => {
     const fetchInstitution = async () => {
       try {
-        const res = await axios.get(
-          `${BASE_API}/api/v1/institutions/${id}`
+        const res = await api.get(
+          `/api/v1/institutions/${id}`
         )
 
         setInstitution(res.data)

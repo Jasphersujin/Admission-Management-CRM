@@ -14,6 +14,12 @@ import AcademicYear from './pages/academicyear/AcademicYear'
 import AddInstitution from './pages/institution/AddInstitution'
 import EditInstitution from './pages/institution/EditInstitution'
 import ViewInstitution from './pages/institution/ViewInstitution'
+import AddCampus from './pages/campus/AddCampus'
+import EditCampus from './pages/campus/EditCampus'
+import ViewCampus from './pages/campus/ViewCampus'
+import AddDepartment from './pages/department/AddDepartment'
+import EditDepartment from './pages/department/EditDepartment'
+import ViewDepartment from './pages/department/ViewDepartment'
 
 function App() {
 
@@ -58,10 +64,16 @@ function App() {
             {/* <Route path='' */}
 
             {/* Campus */}
-            <Route path='/campus' element={<Campus/>} />
+            <Route path='/campuses' element={<Campus/>} />
+            <Route path='/campuses/new' element={<AddCampus/>} />
+            <Route path='/campuses/edit/:id' element={<EditCampus/>} />
+            <Route path='/campuses/:id' element={<ViewCampus/>} />
 
             {/* Department */}
-            <Route path='/department' element={<Department/>} />
+            <Route path='/departments' element={<Department/>} />
+            <Route path='/departments/new' element={<AddDepartment/>} />
+            <Route path='/departments/edit/:id' element={<EditDepartment/>} />
+            <Route path='/departmentss/:id' element={<ViewDepartment/>}/>
 
             {/* Program */}
             <Route path='/program' element={<Program/>} />

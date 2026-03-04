@@ -70,25 +70,7 @@ export const getInstitutionById = async (req, res) => {
 };
 
 
-
 // Update
-// export const updateInstitution = async (req, res) => {
-//   try {
-//     const institution = await Institution.findByIdAndUpdate(
-//       req.params.id,
-//       req.body,
-//       { new: true }
-//     );
-
-//     res.json(institution);
-
-//   } catch (error) {
-//     res.status(500).json({
-//       message: error.message
-//     });
-//   }
-// };
-
 export const updateInstitution = async (req, res) => {
   try {
     const institution = await Institution.findByIdAndUpdate(

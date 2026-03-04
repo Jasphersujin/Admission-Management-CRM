@@ -1,14 +1,14 @@
 import jwt from "jsonwebtoken";
-import User from "../models/User.js";
+import User from "../models/user.model.js";
 
 const auth = async (req, res, next) => {
   try {
 
     const header = req.headers.authorization;
 
-    if (!header) {
+    if (!header || !header.startsWith("Bearer")) {
       return res.status(401).json({
-        message: "No token provided"
+        message: "Unauthorized"
       });
     }
 
@@ -30,7 +30,7 @@ const auth = async (req, res, next) => {
 
   } catch (err) {
 
-    return res.status(401).json({
+    res.status(401).json({
       message: "Invalid or expired token"
     });
 
