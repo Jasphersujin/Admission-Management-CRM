@@ -49,7 +49,7 @@ export function LoginForm({ className, ...props }) {
       localStorage.setItem("user", JSON.stringify(user))
 
       // redirect based on role
-      window.location.href = "/dashboard"
+      window.location.href = "/"
 
     } catch (err) {
 
@@ -124,6 +124,7 @@ export function LoginForm({ className, ...props }) {
 
               <FieldDescription className="text-center">
                 Admission Management System
+                email: institute@admin.com | password : root123
               </FieldDescription>
 
             </FieldGroup>

@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 
 import { AppSidebar } from "@/components/app-sidebar"
 import { Separator } from "@/components/ui/separator"
@@ -36,9 +36,11 @@ export default function Layout() {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
-                    Dashboard
-                  </BreadcrumbLink>
+                  {/* <BreadcrumbLink> */}
+                    <Link to="/">
+                      Dashboard
+                    </Link>  
+                  {/* </BreadcrumbLink> */}
                 </BreadcrumbItem>
 
                 <BreadcrumbSeparator className="hidden md:block" />

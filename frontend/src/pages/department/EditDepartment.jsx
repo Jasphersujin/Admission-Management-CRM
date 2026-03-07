@@ -27,9 +27,9 @@ const { id } = useParams()
 const [campuses,setCampuses] = useState([])
 
 const [formData,setFormData] = useState({
-campusId:"",
-name:"",
-code:""
+    campusId:"",
+    name:"",
+    code:""
 })
 
 const [loading,setLoading] = useState(false)
@@ -38,10 +38,8 @@ const [fetching,setFetching] = useState(true)
 useEffect(()=>{
 
 const loadData = async()=>{
-
-try{
-
-const dep = await api.get(`/api/v1/departments/${id}`)
+    try{
+        const dep = await api.get(`/api/v1/departments/${id}`)
 const camp = await api.get("/api/v1/campuses")
 
 setFormData({

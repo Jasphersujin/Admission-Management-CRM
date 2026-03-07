@@ -34,7 +34,7 @@ function App() {
             path="/login"
             element={
               isAuthenticated ? (
-                <Navigate to="/dashboard" replace />
+                <Navigate to="/" replace />
               ) : (
                 <LoginPage />
               )
@@ -52,7 +52,7 @@ function App() {
               }
             >
             {/* Dashboard */}
-            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="/" element={<Dashboard />} />
 
             {/* Master Managememt */}
             {/* Institution */}
@@ -73,7 +73,7 @@ function App() {
             <Route path='/departments' element={<Department/>} />
             <Route path='/departments/new' element={<AddDepartment/>} />
             <Route path='/departments/edit/:id' element={<EditDepartment/>} />
-            <Route path='/departmentss/:id' element={<ViewDepartment/>}/>
+            <Route path='/departments/:id' element={<ViewDepartment/>}/>
 
             {/* Program */}
             <Route path='/program' element={<Program/>} />
