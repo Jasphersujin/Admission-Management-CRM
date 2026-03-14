@@ -14,6 +14,15 @@ import {
   FieldLegend,
   FieldSet,
 } from "@/components/ui/field"
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue
+} from "@/components/ui/select"
 
 import { Input } from "@/components/ui/input"
 
@@ -87,6 +96,13 @@ export default function EditCampus() {
       [id]:value
     }))
 
+  }
+
+  const updateField = (field, value) => {
+    setFormData(prev => ({
+    ...prev,
+    [field]: value
+    }))
   }
 
 
@@ -168,8 +184,32 @@ export default function EditCampus() {
                   <FieldLabel htmlFor="institutionId">
                     Institution
                   </FieldLabel>
+                  <Select
+                    value={formData.institutionId}
+                    onValueChange={(value)=>updateField("institutionId",value)}
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select Institution" />
+                    </SelectTrigger>
 
-                  <select
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectLabel>Institutions</SelectLabel>
+
+                        {institutions.map((inst) => (
+                          <SelectItem
+                            key={inst._id}
+                            value={inst._id}
+                          >
+                            {inst.name}
+                          </SelectItem>
+                        ))}
+
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+
+                  {/* <select
                     id="institutionId"
                     value={formData.institutionId}
                     onChange={handleChange}
@@ -190,7 +230,7 @@ export default function EditCampus() {
                       </option>
                     ))}
 
-                  </select>
+                  </select> */}
 
                 </Field>
 

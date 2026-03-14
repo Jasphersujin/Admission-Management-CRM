@@ -5,7 +5,8 @@ import {
   getCampuses,
   getCampusById,
   updateCampus,
-  deleteCampus
+  deleteCampus,
+  getCampusesByInstitution
 } from "../controllers/campus.controller.js";
 
 import auth from "../middleware/auth.middleware.js";
@@ -62,6 +63,16 @@ router.delete(
   auth,
   authorizeRoles("ADMIN"),
   deleteCampus
+);
+
+/*
+ADMIN + MANAGEMENT → view campuses by institution
+*/
+router.get(
+  "/institution/:institutionId",
+  auth,
+  authorizeRoles("ADMIN", "MANAGEMENT"),
+  getCampusesByInstitution
 );
 
 export default router;

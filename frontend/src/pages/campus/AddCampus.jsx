@@ -16,6 +16,7 @@ import {
 
 import { Input } from "@/components/ui/input"
 import { ArrowLeft } from "lucide-react"
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 export default function AddCampus() {
 
@@ -36,7 +37,7 @@ export default function AddCampus() {
     const fetchInstitutions = async () => {
 
       const res = await api.get("/api/v1/institutions")
-
+      console.log(res.data.data);
       setInstitutions(res.data.data)
 
     }
@@ -117,31 +118,35 @@ export default function AddCampus() {
                   <FieldLabel>
                     Institution
                   </FieldLabel>
-
-                  <select
-                    id="institutionId"
+                  <Select
                     value={formData.institutionId}
-                    onChange={handleChange}
-                    className="border rounded-md h-10 px-3"
-                    required
+                    onValueChange={(value) =>
+                      handleChange({
+                        target: {
+                          id: "institutionId",
+                          value: value
+                        }
+                      })
+                    }
                   >
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select Institution" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Institutions</SelectLabel>
+                      {institutions.map(inst => (
+                        <SelectItem 
+                          key={inst._id}
+                          value={inst._id}
+                        >
+                          {inst.name}
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
 
-                    <option value="">
-                      Select Institution
-                    </option>
-
-                    {institutions.map(inst => (
-
-                      <option
-                        key={inst._id}
-                        value={inst._id}
-                      >
-                        {inst.name}
-                      </option>
-
-                    ))}
-
-                  </select>
+                  </Select>
 
                   <FieldDescription>
                     Select institution for this campus
@@ -153,6 +158,7 @@ export default function AddCampus() {
                   <FieldLabel>Campus Name</FieldLabel>
                   <Input
                     id="name"
+                    placeholder="Enter Campus Name"
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -163,6 +169,7 @@ export default function AddCampus() {
                   <FieldLabel>Location</FieldLabel>
                   <Input
                     id="location"
+                    placeholder="Enter Campus Location"
                     value={formData.location}
                     onChange={handleChange}
                   />

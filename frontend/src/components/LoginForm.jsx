@@ -95,7 +95,7 @@ export function LoginForm({ className, ...props }) {
                 <FieldLabel>Email</FieldLabel>
                 <Input
                   type="email"
-                  placeholder="admin@email.com"
+                  placeholder="Enter email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -106,6 +106,7 @@ export function LoginForm({ className, ...props }) {
                 <FieldLabel>Password</FieldLabel>
                 <Input
                   type="password"
+                  placeholder="Enter Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required

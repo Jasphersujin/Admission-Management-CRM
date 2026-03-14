@@ -70,32 +70,48 @@ const data = {
           url: "/departments",
         },
         {
-          title : "Program",
-          url : "/program",
-        },
-        {
           title : "Academic Year",
           url : "/acdemic-year",
+        },
+        {
+          title : "Program",
+          url : "/program",
         },
       ],
     },
     {
-      title: "Models",
+      title: "Access & Roles",
       url: "#",
       icon: Bot,
       items: [
         {
-          title: "Genesis",
+          title : "Sidebar Sections",
+          url : "#",
+        },
+        {
+          title: "Features (Modules)",
           url: "#",
         },
         {
-          title: "Explorer",
+          title: "Screens",
           url: "#",
         },
         {
-          title: "Quantum",
+          title: "Actions",
           url: "#",
         },
+        {
+          title: "Permission",
+          url: "#",
+        },
+        {
+          title: "Roles",
+          url : "#",
+        },
+        {
+          title : "Roles Permission",
+          url : "#",
+        }
       ],
     },
     {

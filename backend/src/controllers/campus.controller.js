@@ -61,6 +61,36 @@ export const getCampuses = async (req, res) => {
 
 };
 
+/*
+Get Campuses By Institution ID
+*/
+export const getCampusesByInstitution = async (req, res) => {
+
+  try {
+
+    const { institutionId } = req.params;
+
+    const campuses = await Campus.find({
+      institutionId: institutionId
+    })
+      .populate("institutionId", "name code")
+      .sort({ createdAt: -1 });
+
+    res.json({
+      success: true,
+      count: campuses.length,
+      data: campuses
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+
+  }
+};
 
 
 /*

@@ -8,7 +8,8 @@ import { seedRootAdmin } from "./seed/rootAdmin.js";
 import authRoutes from "./routes/auth.routes.js";
 import institutionRoutes from "./routes/institution.routes.js";
 import campusRoutes from "./routes/campus.routes.js";
-import departmentRoutes from './routes/department.routes.js'
+import departmentRoutes from './routes/department.routes.js';
+import sidebarsectionRoutes from './routes/sidebarsection.routes.js'
 
 dotenv.config();
 
@@ -31,6 +32,7 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/institutions", institutionRoutes);
 app.use("/api/v1/campuses", campusRoutes);
 app.use("/api/v1/departments", departmentRoutes);
+app.use("/api/v1/sidebarsections", sidebarsectionRoutes);
 
 const PORT = process.env.PORT || 4000
 
