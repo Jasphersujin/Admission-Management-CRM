@@ -21,6 +21,7 @@ const userSchema = new mongoose.Schema(
                 "ADMIN",
                 "ADMISSION_OFFICER",
                 "MANAGEMENT",
+                "MANAGER"
             ],
             default : "ADMISSION_OFFICER" 
         },
